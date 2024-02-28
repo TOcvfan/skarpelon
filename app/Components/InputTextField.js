@@ -38,12 +38,11 @@ const color = {
     color: 'black',
   },
   label: {
-    color: 'black',
+    color: 'blue',
   },
   fieldset: {
     border: "2px solid purple",
     borderRadius: "16px",
-    //boxShadow: "purple 0px 5px 15px"
   }
 }
 
@@ -51,16 +50,13 @@ const StyledInput = styled((props) => (
   <Input {...props} />
 ))(({ color, width }) => ({
   borderRadius: 10,
-  color: 'black',// indigo[800],
   borderColor: color,
   borderWidth: 3,
   padding: 4,
   [`&.${inputBaseClasses.multiline}`]: {
     width: width,
     height: "auto",
-    boxShadow: "purple 0px 5px 15px",
     border: `3px solid ${green[800]}`,
-    color: 'black'// indigo[500]
   }
 }));
 
@@ -76,7 +72,6 @@ const Multiline = (props) => {
           },
           "&.Mui-focused": {
             borderColor: purple[700],
-            color: 'black',// indigo[500],
             padding: "4px"
           },
           "&.Mui-error": {
@@ -113,7 +108,7 @@ const Password = (props) => {
       sx={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'right',
+        justifyContent: 'center',
         position: 'relative',
         width: props.width,
       }}
@@ -142,7 +137,7 @@ const TextInput = (props) => {
       sx={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'right',
+        justifyContent: 'center',
         position: 'relative',
         width: props.width,
       }}
@@ -166,24 +161,34 @@ const TextInput = (props) => {
 
 const SelectText = ({ children, type, defaultValue, value, width, onChange, required, errors, label, id, select }) => {
   return (
-    <ValidationTextField
-      id={id}
-      label={errors ? errors.message : label}
-      required={required}
-      error={!errors ? false : true}
-      type={type}
-      select={select}
-      onChange={onChange}
-      value={value}
+    <Box
       sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
         width: width,
-        color
       }}
-      variant="outlined"
-      defaultValue={defaultValue}
     >
-      {children}
-    </ValidationTextField>
+      <ValidationTextField
+        id={id}
+        label={errors ? errors.message : label}
+        required={required}
+        error={!errors ? false : true}
+        type={type}
+        select={select}
+        onChange={onChange}
+        value={value}
+        sx={{
+          width: width,
+          color
+        }}
+        variant="outlined"
+        defaultValue={defaultValue}
+      >
+        {children}
+      </ValidationTextField>
+    </Box>
   )
 }
 
@@ -201,5 +206,5 @@ export default function Text({ children, type, defaultValue, value, width, onCha
     }
   };
 
-  return <Box sx={{ m: '10px', width: '100%' }}>{inputType(type)}</Box>;
+  return <Box sx={{ m: '10px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{inputType(type)}</Box>;
 }

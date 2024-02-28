@@ -10,12 +10,13 @@ export default function SimpelDato({ months, year, setYear, month, setMonth, dat
     const yearList = Array.from(Array(maxOffset)).map((val, index) => year - index)
     const monthList = Array.from(Array(12)).map((val, index) => index)
     const dateList = Array.from(Array(31)).map((val, index) => index + 1)
-    const result = format(new Date(year, month, date), "yyyy-MM-dd")
+    let result = format(new Date(year, month, date), "yyyy-MM-dd")
     //console.log(result)
 
     const handleYear = (event) => {
         setYear(event.target.value)
         //onChange(event.target.value);
+        result = format(new Date(event.target.value, month, date), "yyyy-MM-dd")
         setValue(name, result)
         //console.log(result)
     };
@@ -23,13 +24,15 @@ export default function SimpelDato({ months, year, setYear, month, setMonth, dat
     const handleMonth = (event) => {
         setMonth(event.target.value);
         //onChange(event);
-        //console.log(result)
+        //console.log(event)
+        result = format(new Date(year, event.target.value, date), "yyyy-MM-dd")
         setValue(name, result)
     };
 
     const handleDate = (event) => {
         setDate(event.target.value);
         //onChange(event);
+        result = format(new Date(year, month, event.target.value), "yyyy-MM-dd")
         setValue(name, result)
         //console.log(result)
     };
