@@ -1,30 +1,33 @@
 import axios from 'axios';
 import config from '@/config/config';
 import headers from '@/helpers/headers';
-const url = config.baseURL + config.path
+const url = config.baseURL + config.path;
 
-const hent = async (sti, token) => {
-    const requestOptions = {
-        method: 'GET',
-        headers: headers(token)
-    };
+
+const del = async (sti, token) => {
     let res;
-    const hent = await axios.get(url + sti, requestOptions).then(response => {
+    const requestOptions = {
+        method: 'DELETE',
+        headers: headers(token),
+    };
+
+    const del = await axios.delete(url + sti, requestOptions).then(response => {
         res = response.data
         return res
-    }).catch(function (error) {
+    }).catch((error) => {
         if (error.response) {
             res = error.response.data;
             throw res;
         } else if (error.request) {
-            res = error.request
+            res = error.request;
             throw res
         } else {
-            res = error.message
+            res = error.message;
             throw res
         }
     })
-    return hent;
+    return del;
+
 }
 
-export default hent;
+export default del;

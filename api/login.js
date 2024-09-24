@@ -1,4 +1,4 @@
-import config from '../helpers/config';
+import config from '@/config/config';
 import axios from 'axios';
 import headers from '@/helpers/headers';
 const url = config.baseURL + config.path;
@@ -17,14 +17,11 @@ const login = async (data) => {
     }).catch((error) => {
         if (error.response) {
             res = error.response.data;
-            console.log(res)
             throw res;
         } else if (error.request) {
-            console.log(error.request + ' request')
             res = error.request;
             throw res
         } else {
-            console.log(error + ' else')
             res = error.message;
             throw res
         }

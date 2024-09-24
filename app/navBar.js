@@ -15,28 +15,21 @@ const NavBar = ({ navn, aktiv }) => {
             sprogfunktion(language, dan, eng)
         )
     }
-
-    const link = { name: 'Links', link: '/links', targetSegment: 'links' };
-    const piger = user?.role === "FISSE" ?
-        { name: 'Rosie and Bella', link: '/loves_rosie_and_bella', targetSegment: 'loves_rosie_and_bella' }
-        :
-        { name: sprogting('Skrivebord', 'Desktop'), link: '/skrivebord', targetSegment: 'skrivebord' }
+        
 
     let pagesLoggedIn = [
         { name: sprogting('Forside', 'Start page'), link: '/forside', targetSegment: 'forside' },
         { name: sprogting('Min Bil', 'My Car'), link: '/bil', targetSegment: 'bil' },
         { name: sprogting('2cv Campingvogn', '2cv caravan'), link: '/2cvcampingvogn', targetSegment: '2cvcampingvogn' },
         { name: sprogting('Profil', 'Profile'), link: '/profil', targetSegment: 'profil' },
-        piger,
+        { name: sprogting('Skrivebord', 'Desktop'), link: '/skrivebord', targetSegment: 'skrivebord' },
         { name: sprogting('Gæstebog', 'guestbook'), link: '/gaestebog', targetSegment: 'gaestebog' },
-        link
     ]
 
     let pagesNotLoggedIn = [
         { name: sprogting('Hjem', 'home'), link: '/', targetSegment: null },
         { name: sprogting('Opret dig', 'Register'), link: '/bruger/login', targetSegment: 'bruger' },
         { name: sprogting('Log ind', 'Log in'), link: '/login', targetSegment: 'login' },
-        link
     ]
 
     const handleOpenNavMenu = (event) => {
@@ -79,7 +72,6 @@ const NavBar = ({ navn, aktiv }) => {
                 flexDirection: retning,
             }}>
                 {sider().map((p) => {
-                    //console.log(p)
                     const aktivSide = (aktiv === p.targetSegment) ? markering : { backgroundColor: 'inherit' }
                     return (
                         <MenuItem onClick={handleCloseNavMenu} key={p.name} sx={
@@ -100,7 +92,7 @@ const NavBar = ({ navn, aktiv }) => {
     return (
         <AppBar position="fixed" sx={{
             color: '#fff',
-            background: 'blue'
+            background: 'inherit'
         }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>

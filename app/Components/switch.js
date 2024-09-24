@@ -20,7 +20,7 @@ const PurpleSwitch = styled(Switch)(({ theme }) => ({
 export default function LillaSwitch({ onChange, on, off, value, label }) {
   return (
     <Box>
-      <label>{label}</label>
+      <Box>{label}</Box>
       <Stack direction="row" spacing={1} alignItems="center">
         <Typography>{off}</Typography>
         <PurpleSwitch

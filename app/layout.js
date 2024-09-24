@@ -3,8 +3,8 @@ import ClientLayout from './layout.client';
 import './globals.css'
 
 export const metadata = {
-  title: 'titel',
-  description: 'tekst',
+  title: 'Christians side',
+  description: 'En side med billeder af min bil og 2cv campingvogn',
 }
 
 export default function RootLayout({ children }) {

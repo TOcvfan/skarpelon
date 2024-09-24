@@ -1,5 +1,5 @@
 "use client"
-import { Box } from '@mui/material';
+import { Box } from '@/lib/mui';
 import React from 'react';
 import dk from '@/media/dk.svg'
 import gb from '@/media/gb.svg'

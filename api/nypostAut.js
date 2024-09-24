@@ -1,4 +1,4 @@
-import config from '../helpers/config';
+import config from '@/config/config';
 import axios from 'axios';
 import headers from '@/helpers/headers';
 const url = config.baseURL + config.path;

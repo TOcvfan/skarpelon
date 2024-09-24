@@ -48,7 +48,6 @@ export default function Login() {
 
 	useEffect(() => {
 		checkServer().then(test => {
-			console.log(test)
 			setMessage(test)
 		})
 	}, [])
@@ -66,7 +65,6 @@ export default function Login() {
 				setUser(res)
 				setIsLoggedIn(true)
 			}
-
 			switch (rolle) {
 				case "FISSE":
 					router.push('/loves_rosie_and_bella');

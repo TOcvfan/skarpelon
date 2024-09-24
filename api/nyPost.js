@@ -1,17 +1,17 @@
-import axios from 'axios';
 import config from '@/config/config';
+import axios from 'axios';
 import headers from '@/helpers/headers';
 const url = config.baseURL + config.path;
 
+const nyPost = async (data, sti, token) => {
 
-const rediger = async (data, sti, token) => {
-    let res;
     const requestOptions = {
-        method: 'PUT',
+        method: 'POST',
         headers: headers(token),
     };
+    let res;
 
-    const rediger = await axios.put(url + sti, data, requestOptions).then(response => {
+    const nyPost = await axios.post(url + sti, data, requestOptions).then(response => {
         res = response.data
         return res
     }).catch((error) => {
@@ -25,9 +25,7 @@ const rediger = async (data, sti, token) => {
             res = error.message;
             throw res
         }
-    })
-    return rediger;
-
+    });
+    return nyPost;
 }
-
-export default rediger;
+export default nyPost;

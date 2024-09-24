@@ -3,7 +3,6 @@ import React from 'react';
 import { Title } from '$/Components';
 import { useAppContext } from "$/AppContext";
 import { Box } from '@/lib/mui';
-import { chango } from './fonts';
 
 export default function ServerFejl() {
     const { language, sprogfunktion } = useAppContext();
@@ -17,7 +16,7 @@ export default function ServerFejl() {
 
     return (
         <Box sx={{ textAlign: 'center', textShadow: '-1px 0px 0px black' }}>
-            <Title className={chango.className} color='blue' size={10}>
+            <Title font='Chango' color='blue' size={10}>
                 {errormessage}<a href={`mailto:${mail}`}>{mail}</a>
             </Title>
         </Box>

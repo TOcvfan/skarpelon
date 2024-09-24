@@ -2,14 +2,18 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import { amber } from '@mui/material/colors';
 
-const CustomizedButtons = ({ children, disabled, type, onClick, width, hojre, height, bgcolor, hoverColor, color, shadow }) => {
+const CustomizedButtons = ({ children, disabled, type, onClick, width, hojre, height, bgcolor, hoverColor, color, shadow, disabledColor }) => {
 
   const colorButton = {
     color: color ? color : 'white',
     fontWeight: 'bold',
-    background: bgcolor ? bgcolor : 'blue',
+    background: bgcolor ? bgcolor : 'radial-gradient(circle, rgba(158,26,176,1) 32%, rgba(55,55,182,1) 63%, rgba(255,211,0,1) 100%)',
     '&:hover': {
-      background: hoverColor ? hoverColor : 'aquamarine',
+      background: hoverColor ? hoverColor : amber[700],
+    },
+    '&:disabled': {
+      backgroundColor: 'transparent',
+      color: disabledColor ? disabledColor : 'transparent'
     },
     borderRadius: 10,
     height,

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import config from '../helpers/config';
+import config from '@/config/config';
 import headers from '@/helpers/headers';
 const url = config.baseURL + config.path
 

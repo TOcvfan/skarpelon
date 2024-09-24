@@ -1,18 +1,18 @@
 import axios from 'axios';
-import config from '@/config/config';
+import config from '@/config/config'
 import headers from '@/helpers/headers';
-const url = config.baseURL + config.path
+const url = config.baseURL + '/cvcontact'
 
-const hent = async (sti, token) => {
-    const requestOptions = {
-        method: 'GET',
-        headers: headers(token)
-    };
+const mail = async (data) => {
     let res;
-    const hent = await axios.get(url + sti, requestOptions).then(response => {
+    const requestOptions = {
+        method: 'POST',
+        headers: headers()
+    }
+    const mail = await axios.post(url, data, requestOptions).then(response => {
         res = response.data
         return res
-    }).catch(function (error) {
+    }).catch((error) => {
         if (error.response) {
             res = error.response.data;
             throw res;
@@ -24,7 +24,8 @@ const hent = async (sti, token) => {
             throw res
         }
     })
-    return hent;
+
+    return mail
 }
 
-export default hent;
+export default mail;

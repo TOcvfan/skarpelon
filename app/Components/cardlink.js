@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import { Card, CardHeader, CardMedia, CardContent, Typography } from '@mui/material';
+import { Card, CardHeader, CardMedia, CardContent, Typography } from '@/lib/mui';
 
 export default function LinkCard({ children, titel, billede }) {
 

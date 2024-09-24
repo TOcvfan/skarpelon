@@ -1,5 +1,5 @@
 import axios from 'axios';
-import config from '../helpers/config';
+import config from '@/config/config';
 import headers from '@/helpers/headers';
 
 const checkServer = async () => {
@@ -8,9 +8,8 @@ const checkServer = async () => {
         headers: headers()
     };
     let res;
-    await axios(`${config.baseURL}/tester`, requestOptions).then((response) => {
-        res = response.data
-        return res
+    await axios(`${config.baseURL}/tester`, requestOptions).then((res) => {
+        return res.data
     }).catch(function (error) {
         if (error.response) {
             res = error.response.data;

@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box } from '@/lib/mui';
 
 
 const Title = ({ children, size, color, className }) => {
